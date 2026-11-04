@@ -130,14 +130,21 @@
             <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
             <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
           </svg>
-          <p class="lead" data-reveal style="--i:3">If your name is on the list below, we saved a seat for you. Tap your name to RSVP for your whole party.</p>
+          <p class="lead" data-reveal style="--i:3">If your name is on our guest list, we saved a seat for you. You'll RSVP for everyone in your party.</p>
           <a class="btn" href="#rsvp" data-reveal style="--i:4">RSVP now</a>
         </div>
       </div>
       <div class="section section--list">
-        <ul class="guests" id="guest-parties" aria-label="Invited guests">
-          <!-- Filled in from guests.js -->
-        </ul>
+        <details class="guestlist" data-reveal>
+          <summary class="guestlist__toggle">
+            <span>See the guest list</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p class="guestlist__hint">Tap your name to RSVP.</p>
+          <ul class="guests" id="guest-parties" aria-label="Invited guests">
+            <!-- Filled in from guests.js -->
+          </ul>
+        </details>
       </div>
     </section>
 

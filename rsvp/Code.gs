@@ -44,7 +44,7 @@ const PARTIES = [
   { id: 'moses', members: ['Moses'] },
   { id: 'kadence-steaven', members: ['Kadence', 'Steaven'] },
   { id: 'matthew', members: ['Matthew'] },
-  { id: 'regon', members: ['Regon'] },
+  { id: 'regon', members: ['Reagan'] },
 ];
 
 const STATUS_YES = 'Attending';
@@ -131,9 +131,17 @@ function getSheet_() {
   return sheet;
 }
 
-// Make sure every guest on the list has a row (handles list changes too).
+// Keep the sheet matching the guest list: add rows for new guests, and
+// remove rows for names no longer on the list (e.g. a corrected spelling)
+// as long as that row has no answer yet.
 function addMissingGuests_(sheet) {
-  const rows = sheet.getDataRange().getValues();
+  const onList = {};
+  PARTIES.forEach(function (p) { p.members.forEach(function (n) { onList[p.id + '|' + n] = true; }); });
+  let rows = sheet.getDataRange().getValues();
+  for (let i = rows.length - 1; i >= 1; i--) {
+    if (!onList[rows[i][0] + '|' + rows[i][2]] && rows[i][3] === STATUS_NONE) sheet.deleteRow(i + 1);
+  }
+  rows = sheet.getDataRange().getValues();
   const have = {};
   rows.slice(1).forEach(function (r) { have[r[0] + '|' + r[2]] = true; });
   const add = [];
