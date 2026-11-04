@@ -1,0 +1,378 @@
+/* ==========================================================
+   Ezekiel & Sophia — wedding site
+   Colors and fonts live in :root so they're easy to tweak.
+   ========================================================== */
+
+:root {
+  --ivory: #faf6ef;
+  --ivory-deep: #f2ebdf;
+  --ink: #2e2624;
+  --ink-soft: #6a5f5a;
+  --burgundy: #6e1f2c;
+  --burgundy-dark: #4f1520;
+  --gold: #b0905a;
+  --sage: #7a8770;
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter: clamp(16px, 5vw, 48px);
+  --maxw: 1080px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: lining-nums;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+figure { margin: 0; }
+
+a { color: var(--burgundy); }
+a:hover { color: var(--burgundy-dark); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Shared type ---------- */
+
+.eyebrow {
+  margin: 0 0 .75rem;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+.eyebrow--accent { color: var(--gold); }
+
+.section__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  line-height: 1.1;
+  color: var(--burgundy);
+}
+
+.amp {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  margin: 1.25rem auto 2rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.divider span {
+  width: 56px;
+  height: 1px;
+  background: currentColor;
+  opacity: .6;
+}
+.divider--left { justify-content: flex-start; }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  background: #1d1a1f;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 56% 40%;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(20, 14, 18, .35) 0%,
+      rgba(20, 14, 18, .10) 30%,
+      rgba(20, 14, 18, .30) 55%,
+      rgba(20, 14, 18, .78) 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--gutter) clamp(4.5rem, 12vh, 7rem);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, .45);
+}
+
+.hero .eyebrow { color: rgba(255, 255, 255, .85); }
+
+.hero__names {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: .01em;
+}
+.hero__names .amp {
+  color: #e6cf9f;
+  padding: 0 .08em;
+}
+
+.hero__date {
+  margin: 1.1rem 0 .35rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  font-weight: 500;
+}
+
+.hero__place {
+  margin: 0;
+  font-size: clamp(.78rem, 2.8vw, .9rem);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .88);
+}
+
+.dot { color: #e6cf9f; padding: 0 .25em; }
+
+.hero__scroll {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, .8);
+  padding: .5rem;
+  animation: bob 2.4s ease-in-out infinite;
+}
+.hero__scroll:hover { color: #fff; }
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 6px); }
+}
+
+/* Phones: show a wider slice of the photo so both faces stay in frame */
+@media (max-width: 640px) and (orientation: portrait) {
+  .hero {
+    height: min(100svh, 125vw);
+    min-height: 460px;
+  }
+  .hero__img { object-position: 57% 45%; }
+  .hero__content { padding-bottom: 3.75rem; }
+  .hero__scroll { bottom: .5rem; }
+  .hero__place span { display: block; }
+  .hero__place .dot { display: none; }
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 7rem) var(--gutter);
+}
+
+.section--center { text-align: center; }
+
+.placeholder {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* Countdown */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(.5rem, 2.5vw, 1.5rem);
+  max-width: 560px;
+  margin: 0 auto 3rem;
+}
+.countdown__unit {
+  padding: 1.1rem .25rem .9rem;
+  border: 1px solid rgba(176, 144, 90, .45);
+  background: #fff;
+  border-radius: 2px;
+}
+.countdown__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--burgundy);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.countdown__label {
+  display: block;
+  margin-top: .45rem;
+  font-size: clamp(.6rem, 2.4vw, .72rem);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.countdown__done {
+  margin: 0 0 3rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--burgundy);
+}
+
+.venue {
+  margin: 0 0 1.75rem;
+  font-style: normal;
+  line-height: 1.8;
+}
+.venue strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.45rem;
+  color: var(--ink);
+}
+.venue__time { color: var(--sage); font-style: italic; }
+
+.btn {
+  display: inline-block;
+  padding: .9rem 2rem;
+  background: var(--burgundy);
+  color: #fff;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background-color .25s ease, transform .25s ease;
+}
+.btn:hover { background: var(--burgundy-dark); color: #fff; transform: translateY(-1px); }
+
+/* Photo + text sections */
+.split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.split + .split { padding-top: 0; }
+
+.split__media {
+  position: relative;
+}
+.split__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 2px;
+}
+/* Thin gold frame offset behind each photo */
+.split__media::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--gold);
+  opacity: .55;
+  z-index: -1;
+}
+.split--reverse .split__media::before { inset: 14px 14px -14px -14px; }
+
+/* On phones, keep the frame inside the screen edges */
+@media (max-width: 719px) {
+  .split__media { margin: 0 14px 14px 0; }
+  .split--reverse .split__media { margin: 0 0 14px 14px; }
+  .split__media img { aspect-ratio: 4 / 4.4; }
+}
+
+@media (min-width: 720px) {
+  .split {
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+  }
+  .split--reverse .split__media { order: 2; }
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 4.5rem var(--gutter) 3.5rem;
+  background: var(--burgundy-dark);
+  color: rgba(255, 255, 255, .82);
+}
+.footer p { margin: 0 0 1rem; }
+.footer a {
+  color: #fff;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 4px;
+  word-break: break-word;
+}
+.footer a:hover { color: #e6cf9f; }
+.footer__names {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: #fff;
+  line-height: 1;
+}
+.footer__names .amp { color: #e6cf9f; }
+.footer__date {
+  margin-top: 1.75rem !important;
+  font-size: .75rem;
+  letter-spacing: .32em;
+  color: #e6cf9f;
+}
+
+/* ---------- Fade-in on scroll ---------- */
+
+.js .fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.js .fade.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero__scroll { animation: none; }
+  .js .fade { opacity: 1; transform: none; transition: none; }
+}
