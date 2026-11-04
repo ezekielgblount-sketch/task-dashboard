@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ezekiel &amp; Sophia · January 2, 2027</title>
   <meta name="description" content="Save the date: Ezekiel &amp; Sophia are getting married on Saturday, January 2, 2027 at All Saints Episcopal Church in Frederick, Maryland.">
-  <meta name="theme-color" content="#5e1a26">
+  <meta name="theme-color" content="#4a1420">
 
   <!-- Link previews (iMessage, Facebook, etc.) -->
   <meta property="og:title" content="Ezekiel &amp; Sophia · January 2, 2027">
-  <meta property="og:description" content="Save the date — All Saints Episcopal Church, Frederick, MD">
+  <meta property="og:description" content="Save the date: All Saints Episcopal Church, Frederick, MD">
   <meta property="og:image" content="images/hero-1200.jpg">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <link rel="preload" as="image" type="image/webp"
         imagesrcset="images/hero-1200.webp 1200w, images/hero.webp 2000w" imagesizes="100vw">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Mark that JS is on, so fade-ins only hide content when they can reveal it -->
+  <!-- Mark that JS is on, so scroll reveals only hide content when they can show it -->
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -34,89 +34,144 @@
            alt="Ezekiel and Sophia holding hands in a field at dusk" fetchpriority="high">
     </picture>
     <div class="hero__overlay" aria-hidden="true"></div>
+    <canvas class="hero__snow" aria-hidden="true"></canvas>
 
     <div class="hero__content">
-      <p class="eyebrow">Save the Date</p>
+      <p class="script hero__eyebrow">Save the Date</p>
       <h1 class="hero__names">Ezekiel <span class="amp">&amp;</span> Sophia</h1>
       <p class="hero__date">January 2, 2027 <span class="dot">·</span> 1:00 PM</p>
       <p class="hero__place"><span>All Saints Episcopal Church</span> <span class="dot">·</span> <span>Frederick, MD</span></p>
     </div>
 
-    <a class="hero__scroll" href="#countdown" aria-label="Scroll to details">
+    <a class="hero__scroll" href="#ceremony" aria-label="Scroll to details">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+
+    <div class="wave wave--hero" style="--to: var(--blush)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,70 C260,20 520,110 820,72 C1080,40 1260,30 1440,64 L1440,120 L0,120 Z"/><path d="M0,88 C240,120 480,40 720,70 C960,100 1200,112 1440,76 L1440,120 L0,120 Z"/></svg>
+    </div>
   </header>
 
   <main>
 
-    <!-- ============ COUNTDOWN + CEREMONY ============ -->
-    <section class="section section--center fade" id="countdown">
-      <p class="eyebrow eyebrow--accent">Saturday, January 2, 2027</p>
-      <h2 class="section__title">The Ceremony</h2>
-      <div class="divider" aria-hidden="true"><span></span>❦<span></span></div>
+    <!-- ============ CEREMONY: countdown + details ============ -->
+    <section class="band band--blush" id="ceremony">
+      <div class="section section--center">
+        <p class="script eyebrow eyebrow--rose" data-reveal>We're getting married</p>
+        <h2 class="section__title" data-reveal style="--i:1">The Ceremony</h2>
+        <svg class="flourish" viewBox="0 0 240 30" aria-hidden="true" data-reveal="draw" style="--i:2">
+          <path pathLength="1" d="M8,15 C40,15 55,4 80,10 C95,14 100,24 112,18 C118,15 116,9 111,10"/>
+          <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
+          <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
+        </svg>
 
-      <div class="countdown" role="timer" aria-live="off" data-target="2027-01-02T13:00:00-05:00">
-        <div class="countdown__unit"><span class="countdown__num" data-unit="days">–</span><span class="countdown__label">Days</span></div>
-        <div class="countdown__unit"><span class="countdown__num" data-unit="hours">–</span><span class="countdown__label">Hours</span></div>
-        <div class="countdown__unit"><span class="countdown__num" data-unit="minutes">–</span><span class="countdown__label">Minutes</span></div>
-        <div class="countdown__unit"><span class="countdown__num" data-unit="seconds">–</span><span class="countdown__label">Seconds</span></div>
+        <div class="countdown" role="timer" aria-live="off" data-target="2027-01-02T13:00:00-05:00">
+          <div class="countdown__unit" data-reveal="pop" style="--i:3"><span class="countdown__num" data-unit="days">–</span><span class="countdown__label">Days</span></div>
+          <div class="countdown__unit" data-reveal="pop" style="--i:4"><span class="countdown__num" data-unit="hours">–</span><span class="countdown__label">Hours</span></div>
+          <div class="countdown__unit" data-reveal="pop" style="--i:5"><span class="countdown__num" data-unit="minutes">–</span><span class="countdown__label">Minutes</span></div>
+          <div class="countdown__unit" data-reveal="pop" style="--i:6"><span class="countdown__num" data-unit="seconds">–</span><span class="countdown__label">Seconds</span></div>
+        </div>
+        <p class="countdown__done" hidden>We're married! Thank you for celebrating with us.</p>
+
+        <div class="details">
+          <article class="detail" data-reveal style="--i:0">
+            <span class="detail__icon detail__icon--burgundy" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            </span>
+            <h3 class="detail__label">When</h3>
+            <p class="detail__main">Saturday</p>
+            <p>January 2, 2027</p>
+          </article>
+          <article class="detail" data-reveal style="--i:1">
+            <span class="detail__icon detail__icon--sage" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            </span>
+            <h3 class="detail__label">Time</h3>
+            <p class="detail__main">1:00 PM</p>
+            <p>Eastern Time</p>
+          </article>
+          <article class="detail" data-reveal style="--i:2">
+            <span class="detail__icon detail__icon--dusk" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+            </span>
+            <h3 class="detail__label">Where</h3>
+            <p class="detail__main">All Saints Episcopal Church</p>
+            <p>106 West Church Street<br>Frederick, Maryland 21701</p>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=All+Saints+Episcopal+Church%2C+106+W+Church+St%2C+Frederick%2C+MD+21701"
+               target="_blank" rel="noopener">Get directions</a>
+          </article>
+        </div>
       </div>
-      <p class="countdown__done" hidden>We're married! Thank you for celebrating with us.</p>
-
-      <address class="venue">
-        <strong>All Saints Episcopal Church</strong><br>
-        106 West Church Street<br>
-        Frederick, Maryland 21701<br>
-        <span class="venue__time">1:00 in the afternoon</span>
-      </address>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=All+Saints+Episcopal+Church%2C+106+W+Church+St%2C+Frederick%2C+MD+21701"
-         target="_blank" rel="noopener">Get directions</a>
     </section>
+
+    <div class="wave" style="--from: var(--ivory); --to: var(--sage-wash)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,40 C300,110 600,0 900,50 C1140,90 1300,80 1440,40 L1440,120 L0,120 Z"/><path d="M0,70 C320,10 560,110 860,70 C1110,36 1290,30 1440,72 L1440,120 L0,120 Z"/></svg>
+    </div>
 
     <!-- ============ GUEST LIST ============
          To expand later: replace the "Coming soon." paragraph with your
          guest list or RSVP form (e.g. an embedded Google Form). -->
-    <section class="section split fade" id="guest-list">
-      <figure class="split__media">
-        <picture>
-          <source type="image/webp" srcset="images/portrait.webp">
-          <img src="images/portrait.jpg" alt="Ezekiel and Sophia embracing at sunset" loading="lazy" width="1100" height="1650">
-        </picture>
-      </figure>
-      <div class="split__text">
-        <p class="eyebrow eyebrow--accent">Join Us</p>
-        <h2 class="section__title">Guest List</h2>
-        <div class="divider divider--left" aria-hidden="true"><span></span>❦<span></span></div>
-        <p class="placeholder">Coming soon.</p>
+    <section class="band band--sage" id="guest-list">
+      <div class="section split">
+        <figure class="split__media" data-reveal="wipe">
+          <picture>
+            <source type="image/webp" srcset="images/portrait.webp">
+            <img src="images/portrait.jpg" alt="Ezekiel and Sophia embracing at sunset" loading="lazy" width="1100" height="1650">
+          </picture>
+        </figure>
+        <div class="split__text">
+          <p class="script eyebrow eyebrow--green" data-reveal>Join us</p>
+          <h2 class="section__title" data-reveal style="--i:1">Guest List</h2>
+          <svg class="flourish flourish--left" viewBox="0 0 240 30" aria-hidden="true" data-reveal="draw" style="--i:2">
+            <path pathLength="1" d="M8,15 C40,15 55,4 80,10 C95,14 100,24 112,18 C118,15 116,9 111,10"/>
+            <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
+            <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
+          </svg>
+          <p class="placeholder" data-reveal style="--i:3">Coming soon.</p>
+        </div>
       </div>
     </section>
+
+    <div class="wave" style="--from: var(--sage-wash); --to: var(--dusk)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,60 C280,0 560,100 840,60 C1100,24 1280,90 1440,50 L1440,120 L0,120 Z"/><path d="M0,90 C240,40 520,120 780,84 C1040,48 1240,60 1440,92 L1440,120 L0,120 Z"/></svg>
+    </div>
 
     <!-- ============ MORE INFORMATION ============
          To expand later: add sub-sections (Reception, Travel, Attire, etc.)
          inside .split__text, or copy this whole <section> for each topic. -->
-    <section class="section split split--reverse fade" id="info">
-      <figure class="split__media">
-        <picture>
-          <source type="image/webp" srcset="images/closeup.webp">
-          <img src="images/closeup.jpg" alt="Ezekiel and Sophia, foreheads touching, smiling" loading="lazy" width="1100" height="1650">
-        </picture>
-      </figure>
-      <div class="split__text">
-        <p class="eyebrow eyebrow--accent">The Details</p>
-        <h2 class="section__title">More Information</h2>
-        <div class="divider divider--left" aria-hidden="true"><span></span>❦<span></span></div>
-        <p class="placeholder">Details on the reception, travel, and attire coming soon.</p>
+    <section class="band band--dusk" id="info">
+      <div class="section split split--reverse">
+        <figure class="split__media" data-reveal="wipe">
+          <picture>
+            <source type="image/webp" srcset="images/closeup.webp">
+            <img src="images/closeup.jpg" alt="Ezekiel and Sophia, foreheads touching, smiling" loading="lazy" width="1100" height="1650">
+          </picture>
+        </figure>
+        <div class="split__text">
+          <p class="script eyebrow eyebrow--gold" data-reveal>The details</p>
+          <h2 class="section__title" data-reveal style="--i:1">More Information</h2>
+          <svg class="flourish flourish--left" viewBox="0 0 240 30" aria-hidden="true" data-reveal="draw" style="--i:2">
+            <path pathLength="1" d="M8,15 C40,15 55,4 80,10 C95,14 100,24 112,18 C118,15 116,9 111,10"/>
+            <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
+            <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
+          </svg>
+          <p class="placeholder" data-reveal style="--i:3">Details on the reception, travel, and attire coming soon.</p>
+        </div>
       </div>
     </section>
+
+    <div class="wave" style="--from: var(--plum); --to: var(--burgundy-dark)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,50 C300,100 620,10 920,56 C1160,92 1320,70 1440,44 L1440,120 L0,120 Z"/><path d="M0,80 C260,30 540,110 820,76 C1080,44 1260,50 1440,84 L1440,120 L0,120 Z"/></svg>
+    </div>
 
   </main>
 
   <!-- ============ FOOTER / CONTACT ============ -->
-  <footer class="footer fade" id="contact">
-    <p class="footer__names">E <span class="amp">&amp;</span> S</p>
-    <p>Questions? Reach us at<br>
+  <footer class="footer" id="contact">
+    <p class="script footer__names" data-reveal>Ezekiel <span class="amp">&amp;</span> Sophia</p>
+    <p data-reveal style="--i:1">Questions? Reach us at<br>
       <a href="mailto:ezekielgblount@gmail.com">ezekielgblount@gmail.com</a></p>
-    <p class="footer__date">01 · 02 · 2027</p>
+    <p class="footer__date" data-reveal style="--i:2">01 · 02 · 2027</p>
   </footer>
 
   <script src="script.js" defer></script>
