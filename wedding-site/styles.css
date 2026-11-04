@@ -480,56 +480,6 @@ a:hover { color: var(--burgundy-dark); }
 .moment__photos .moment__photo { margin: 0; border-radius: 14px; }
 .moment__photos .moment__photo img { aspect-ratio: 3 / 4; }
 
-/* Small bee that rides the tip of the gold line */
-.timeline__bee {
-  position: absolute;
-  z-index: 2;
-  left: var(--line-x);
-  top: calc(26px + (100% - 52px) * var(--progress, 1));
-  width: 30px;
-  height: 22px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--ivory);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.timeline__bee-icon {
-  width: 26px;
-  height: auto;
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* P.S. nicknames line */
-.nicknames {
-  max-width: 34rem;
-  margin: 3rem auto 0;
-  padding-top: 1.75rem;
-  border-top: 1px solid rgba(196, 162, 106, .45);
-  text-align: center;
-  color: var(--ink-soft);
-}
-.nicknames p { margin: 0; line-height: 1.9; }
-.nicknames__ps { display: block; font-size: 2rem; line-height: 1; color: var(--rose); margin-bottom: .35rem; }
-.nick { white-space: nowrap; font-weight: 500; color: var(--burgundy); }
-.nick__icon {
-  display: inline-block;
-  width: 1.75em;
-  height: 1.2em;
-  margin-right: .2em;
-  vertical-align: -0.25em;
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
 /* Wide screens: line down the middle, cards alternate sides */
 @media (min-width: 820px) {
   .timeline { --line-x: 50%; gap: 1rem; }
@@ -538,7 +488,6 @@ a:hover { color: var(--burgundy-dark); }
   .moment:nth-child(odd) .moment__card { grid-column: 1; grid-row: 1; text-align: right; }
   .moment:nth-child(even) .moment__card { grid-column: 3; grid-row: 1; }
   .timeline::before, .timeline::after { top: 40px; bottom: 40px; }
-  .timeline__bee { top: calc(40px + (100% - 80px) * var(--progress, 1)); }
   .moment__photo img { aspect-ratio: 16 / 11; }
 }
 
@@ -1019,6 +968,27 @@ select.field { appearance: auto; }
   font-size: .75rem;
   letter-spacing: .32em;
   color: var(--gold-light);
+}
+
+.footer .footer__ps {
+  max-width: 30rem;
+  margin: 2rem auto 0;
+  font-size: .72rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .55);
+}
+.tiny__icon {
+  display: inline-block;
+  width: 1.6em;
+  height: 1.1em;
+  margin: 0 .35em;
+  vertical-align: -0.25em;
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .8;
 }
 
 /* ---------- Scroll reveals ----------
