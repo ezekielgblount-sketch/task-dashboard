@@ -2,7 +2,7 @@
 
 // Address of the RSVP service (rsvp/Code.gs, deployed as a Google Apps
 // Script web app). It ends in /exec. Leave empty until it's set up.
-const RSVP_URL = '';
+const RSVP_URL = 'https://script.google.com/macros/s/AKfycbx8b5Lz7UP_9j0wE9d6rP7oxWgyY1wwyiou9yRPlsGxQNomEfRFs_QASQxQEURFqHtUTA/exec';
 const CONTACT_EMAIL = 'ezekielgblount@gmail.com';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
