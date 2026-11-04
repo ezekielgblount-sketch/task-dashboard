@@ -233,8 +233,10 @@ function section_(title, rows, color) {
 function sendGuestConfirmation_(rsvp) {
   const body = rsvp.attending
     ? 'Thank you for your RSVP! We have ' + joinNames_(rsvp.coming) + ' down as coming.\n\n' +
-      'Saturday, January 2, 2027 at 1:00 PM\nAll Saints Episcopal Church\n106 West Church Street, Frederick, MD 21701\n\n' +
-      'Attire: cocktail attire.\n\nDetails: ' + SITE_URL + '\n\nWe can\'t wait to celebrate with you!\nEzekiel & Sophia'
+      'Ceremony: Saturday, January 2, 2027 at 1:00 PM (please arrive by 12:30 PM)\n' +
+      'All Saints Episcopal Church, 106 West Church Street, Frederick, MD 21701\n\n' +
+      "Reception: Brewer's Alley, 124 North Market Street, Frederick, MD 21701\n\n" +
+      'Attire: cocktail attire.\n\nTraveling? Plan to arrive the day before (Friday, January 1).\n\nDetails: ' + SITE_URL + '\n\nWe can\'t wait to celebrate with you!\nEzekiel & Sophia'
     : 'Thank you for letting us know. We\'ll miss you, and we\'re grateful you took the time to reply.\n\nEzekiel & Sophia';
   MailApp.sendEmail({
     to: rsvp.email,

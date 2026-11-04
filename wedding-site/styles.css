@@ -760,6 +760,7 @@ select.field { appearance: auto; }
 .info p { margin: 0; }
 .info__item > p:first-of-type { font-size: 1.15rem; color: #fff; }
 .info__sub { margin-top: .35rem !important; font-size: .98rem; color: rgba(255, 255, 255, .78); }
+.info__btn { margin-top: .9rem; padding: .7rem 1.5rem; }
 .info__soon { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: rgba(255, 255, 255, .8) !important; }
 
 /* ---------- Footer ---------- */
