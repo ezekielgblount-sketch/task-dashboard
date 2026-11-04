@@ -277,6 +277,25 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   }, { passive: true });
 })();
 
+/* ---------- Our story: gold line draws down as you scroll ---------- */
+(function storyLine() {
+  const line = document.querySelector('.timeline');
+  if (!line) return;
+  if (reduceMotion) { line.style.setProperty('--progress', 1); return; }
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const r = line.getBoundingClientRect();
+    const p = (window.innerHeight * 0.65 - r.top) / r.height;
+    line.style.setProperty('--progress', Math.max(0, Math.min(1, p)).toFixed(3));
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 /* ---------- Hero: slow parallax on the photo ---------- */
 (function parallax() {
   const hero = document.querySelector('.hero');

@@ -48,7 +48,7 @@
       <p class="hero__deadline">Kindly reply by December 1</p>
     </div>
 
-    <a class="hero__scroll" href="#ceremony" aria-label="Scroll to details">
+    <a class="hero__scroll" href="#story" aria-label="Scroll to our story">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
 
@@ -58,6 +58,75 @@
   </header>
 
   <main>
+
+    <!-- ============ OUR STORY ============
+         A timeline. To add a moment, copy one <li class="moment"> block. -->
+    <section class="band band--story" id="story">
+      <div class="section">
+        <div class="section--center">
+          <p class="script eyebrow eyebrow--rose" data-reveal>Our story</p>
+          <h2 class="section__title" data-reveal style="--i:1">How We Got Here</h2>
+          <svg class="flourish" viewBox="0 0 240 30" aria-hidden="true" data-reveal="draw" style="--i:2">
+          <path pathLength="1" d="M8,15 C40,15 55,4 80,10 C95,14 100,24 112,18 C118,15 116,9 111,10"/>
+          <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
+          <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
+        </svg>
+        </div>
+
+        <ol class="timeline">
+          <li class="moment">
+            <span class="moment__icon moment__icon--dusk" aria-hidden="true" data-reveal="pop">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+            </span>
+            <div class="moment__card" data-reveal>
+              <p class="moment__label">How we met</p>
+              <h3 class="moment__title">It started with an email</h3>
+              <p>Ezekiel was overseas with YWAM when we started writing to each other. Emails turned into texts, and the texts turned into paragraphs. Long ones. We told each other how we saw each other's lives, plus all the little things in between.</p>
+              <p class="moment__aside">Just friends, we said. (For now.)</p>
+            </div>
+          </li>
+
+          <li class="moment">
+            <span class="moment__icon moment__icon--burgundy" aria-hidden="true" data-reveal="pop">
+              <svg viewBox="0 0 24 24"><path d="M7.5 8.5h9a4.5 4.5 0 0 1 4.3 5.8l-.9 3a2.3 2.3 0 0 1-4 .7L14.4 16H9.6l-1.5 2a2.3 2.3 0 0 1-4-.7l-.9-3a4.5 4.5 0 0 1 4.3-5.8z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.5" r=".6"/><circle cx="17" cy="13.3" r=".6"/></svg>
+            </span>
+            <div class="moment__card" data-reveal>
+              <p class="moment__label">First date</p>
+              <h3 class="moment__title">Game on</h3>
+              <p>Two months after Ezekiel got home from discipleship school, we finally met up for a real date: an arcade first, then pizza.</p>
+              <p class="moment__aside">We're not saying who won.</p>
+            </div>
+          </li>
+
+          <li class="moment">
+            <span class="moment__icon moment__icon--gold" aria-hidden="true" data-reveal="pop">
+              <svg viewBox="0 0 24 24"><path d="M6 14a6 6 0 0 1 12 0"/><path d="M12 4.5v2M5.3 7.3l1.4 1.4M18.7 7.3l-1.4 1.4M2.5 14h2M19.5 14h2"/><path d="M3 18c1.5-1 3-1 4.5 0s3 1 4.5 0 3-1 4.5 0 3 1 4.5 0"/></svg>
+            </span>
+            <div class="moment__card" data-reveal>
+              <p class="moment__label">The proposal</p>
+              <h3 class="moment__title">Golden hour</h3>
+              <p>While Ezekiel was at tech school at Vandenberg, we spent an evening on the beach in Santa Barbara, California. As the sun went down and everything turned gold, Ezekiel asked, and Sophia said yes.</p>
+            </div>
+          </li>
+
+          <li class="moment moment--final">
+            <span class="moment__icon moment__icon--rose" aria-hidden="true" data-reveal="pop">
+              <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+            </span>
+            <div class="moment__card" data-reveal>
+              <p class="moment__label">January 2, 2027</p>
+              <h3 class="moment__title">And now, forever</h3>
+              <p>From long paragraphs to "I do." We'd love for you to be there.</p>
+              <a class="btn" href="#rsvp">RSVP</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="wave" style="--from: var(--ivory); --to: var(--blush)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,60 C280,0 560,100 840,60 C1100,24 1280,90 1440,50 L1440,120 L0,120 Z"/><path d="M0,90 C240,40 520,120 780,84 C1040,48 1240,60 1440,92 L1440,120 L0,120 Z"/></svg>
+    </div>
 
     <!-- ============ CEREMONY: countdown + details ============ -->
     <section class="band band--blush" id="ceremony">
