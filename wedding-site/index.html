@@ -44,6 +44,7 @@
       <h1 class="hero__names">Ezekiel <span class="amp">&amp;</span> Sophia</h1>
       <p class="hero__date">January 2, 2027 <span class="dot">·</span> 1:00 PM</p>
       <p class="hero__place"><span>All Saints Episcopal Church</span> <span class="dot">·</span> <span>Frederick, MD</span></p>
+      <a class="btn btn--ghost hero__rsvp" href="#rsvp">RSVP</a>
     </div>
 
     <a class="hero__scroll" href="#ceremony" aria-label="Scroll to details">
@@ -112,8 +113,7 @@
     </div>
 
     <!-- ============ GUEST LIST ============
-         To expand later: replace the "Coming soon." paragraph with your
-         guest list or RSVP form (e.g. an embedded Google Form). -->
+         The names come from guests.js. -->
     <section class="band band--sage" id="guest-list">
       <div class="section split">
         <figure class="split__media" data-reveal="wipe">
@@ -130,18 +130,108 @@
             <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
             <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
           </svg>
-          <p class="placeholder" data-reveal style="--i:3">Coming soon.</p>
+          <p class="lead" data-reveal style="--i:3">If your name is on the list below, we saved a seat for you. Tap your name to RSVP for your whole party.</p>
+          <a class="btn" href="#rsvp" data-reveal style="--i:4">RSVP now</a>
+        </div>
+      </div>
+      <div class="section section--list">
+        <ul class="guests" id="guest-parties" aria-label="Invited guests">
+          <!-- Filled in from guests.js -->
+        </ul>
+      </div>
+    </section>
+
+    <div class="wave" style="--from: var(--sage-wash); --to: var(--ivory)" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,40 C300,110 600,0 900,50 C1140,90 1300,80 1440,40 L1440,120 L0,120 Z"/><path d="M0,70 C320,10 560,110 860,70 C1110,36 1290,30 1440,72 L1440,120 L0,120 Z"/></svg>
+    </div>
+
+    <!-- ============ RSVP ============
+         Answers go to the RSVP service (rsvp/Code.gs); its address is
+         RSVP_URL at the top of script.js. -->
+    <section class="band band--ivory" id="rsvp">
+      <div class="section section--narrow section--center">
+        <p class="script eyebrow eyebrow--rose" data-reveal>Kindly reply</p>
+        <h2 class="section__title" data-reveal style="--i:1">RSVP</h2>
+        <svg class="flourish" viewBox="0 0 240 30" aria-hidden="true" data-reveal="draw" style="--i:2">
+            <path pathLength="1" d="M8,15 C40,15 55,4 80,10 C95,14 100,24 112,18 C118,15 116,9 111,10"/>
+            <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
+            <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
+          </svg>
+        <p class="lead" data-reveal style="--i:3">Find your name to let us know if you can make it.</p>
+
+        <div class="rsvp" data-reveal style="--i:4">
+          <p class="rsvp__test" id="rsvp-test" hidden>Test mode: Sophia gets a preview email and nothing is saved.</p>
+          <form id="rsvp-form" novalidate>
+
+            <div class="rsvp__step" data-step="find">
+              <label class="field__label" for="rsvp-search">Your name</label>
+              <input class="field" id="rsvp-search" type="text" autocomplete="off" autocapitalize="words" spellcheck="false"
+                     placeholder="Start typing your first name" aria-describedby="rsvp-find-help" aria-controls="rsvp-matches">
+              <p class="rsvp__help" id="rsvp-find-help">You'll RSVP for everyone in your party.</p>
+              <ul class="rsvp__matches" id="rsvp-matches" aria-live="polite"></ul>
+              <p class="rsvp__nomatch" id="rsvp-nomatch" hidden>
+                We couldn't find that name on our guest list. Check the spelling, or email us at
+                <a href="mailto:ezekielgblount@gmail.com">ezekielgblount@gmail.com</a>.
+              </p>
+            </div>
+
+            <div class="rsvp__step" data-step="details" hidden>
+              <div class="rsvp__party">
+                <p class="rsvp__party-label">RSVP for</p>
+                <p class="rsvp__party-names" id="rsvp-party-names"></p>
+                <button type="button" class="link-btn" id="rsvp-change">Not you? Choose another name</button>
+              </div>
+
+              <fieldset class="rsvp__group">
+                <legend class="field__label">Will you be joining us?</legend>
+                <div class="choices">
+                  <label class="choice"><input type="radio" name="attending" value="yes" id="rsvp-yes"><span>Joyfully accept</span></label>
+                  <label class="choice"><input type="radio" name="attending" value="no" id="rsvp-no"><span>Regretfully decline</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rsvp__group" id="rsvp-members-wrap" hidden>
+                <legend class="field__label">Who's coming?</legend>
+                <p class="rsvp__help">Check everyone in your party who will be there. Only the guests listed here are invited.</p>
+                <div class="members" id="rsvp-members"></div>
+              </fieldset>
+
+              <div class="rsvp__group" id="rsvp-respondent-wrap">
+                <label class="field__label" for="rsvp-respondent">Who's filling this out?</label>
+                <select class="field" id="rsvp-respondent"></select>
+              </div>
+
+              <div class="rsvp__group">
+                <label class="field__label" for="rsvp-email">Email <span class="opt">(optional, for a confirmation)</span></label>
+                <input class="field" id="rsvp-email" type="email" autocomplete="email" inputmode="email">
+              </div>
+
+              <div class="rsvp__group">
+                <label class="field__label" for="rsvp-note">Note for Ezekiel &amp; Sophia <span class="opt">(optional)</span></label>
+                <textarea class="field" id="rsvp-note" rows="3" maxlength="1000"></textarea>
+              </div>
+
+              <p class="rsvp__error" id="rsvp-error" role="alert" hidden></p>
+              <button class="btn btn--block" type="submit" id="rsvp-submit">Send RSVP</button>
+            </div>
+
+            <div class="rsvp__step rsvp__done" data-step="done" hidden tabindex="-1">
+              <p class="script rsvp__thanks" id="rsvp-done-title">Thank you!</p>
+              <p id="rsvp-done-msg"></p>
+              <button type="button" class="link-btn" id="rsvp-again">Change your answer or RSVP for someone else</button>
+            </div>
+
+          </form>
         </div>
       </div>
     </section>
 
-    <div class="wave" style="--from: var(--sage-wash); --to: var(--dusk)" aria-hidden="true">
+    <div class="wave" style="--from: var(--ivory); --to: var(--dusk)" aria-hidden="true">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wave__back" d="M0,60 C280,0 560,100 840,60 C1100,24 1280,90 1440,50 L1440,120 L0,120 Z"/><path d="M0,90 C240,40 520,120 780,84 C1040,48 1240,60 1440,92 L1440,120 L0,120 Z"/></svg>
     </div>
 
     <!-- ============ MORE INFORMATION ============
-         To expand later: add sub-sections (Reception, Travel, Attire, etc.)
-         inside .split__text, or copy this whole <section> for each topic. -->
+         To add a topic, copy an .info__item block. -->
     <section class="band band--dusk" id="info">
       <div class="section split split--reverse">
         <figure class="split__media" data-reveal="wipe">
@@ -158,7 +248,17 @@
             <path pathLength="1" d="M232,15 C200,15 185,4 160,10 C145,14 140,24 128,18 C122,15 124,9 129,10"/>
             <path class="flourish__gem" d="M120,9 L125,15 L120,21 L115,15 Z"/>
           </svg>
-          <p class="placeholder" data-reveal style="--i:3">Details on the reception, travel, and attire coming soon.</p>
+          <div class="info">
+            <div class="info__item" data-reveal style="--i:3">
+              <h3 class="info__title">Attire</h3>
+              <p>Cocktail attire.</p>
+              <p class="info__sub">Bridesmaids and groomsmen, we'll text you separately with what to wear.</p>
+            </div>
+            <div class="info__item" data-reveal style="--i:4">
+              <h3 class="info__title">Reception &amp; travel</h3>
+              <p class="info__soon">Details coming soon.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -177,6 +277,7 @@
     <p class="footer__date" data-reveal style="--i:2">01 · 02 · 2027</p>
   </footer>
 
+  <script src="guests.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
