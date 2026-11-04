@@ -68,13 +68,15 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   const img = document.querySelector('.hero__img');
   if (!hero || !img || reduceMotion) return;
 
+  const wide = window.matchMedia('(min-width: 900px)');
   let ticking = false;
   function update() {
+    ticking = false;
+    if (!wide.matches) { img.style.transform = ''; return; }
     const y = window.scrollY;
     if (y < hero.offsetHeight) {
       img.style.transform = `translate3d(0, ${y * 0.22}px, 0)`;
     }
-    ticking = false;
   }
   window.addEventListener('scroll', () => {
     if (!ticking) {

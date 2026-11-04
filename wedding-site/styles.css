@@ -162,10 +162,11 @@ a:hover { color: var(--burgundy-dark); }
   inset: 0;
   background:
     linear-gradient(to bottom,
-      rgba(44, 56, 87, .45) 0%,
-      rgba(44, 56, 87, .08) 32%,
-      rgba(74, 20, 32, .30) 58%,
-      rgba(74, 20, 32, .82) 100%);
+      rgba(44, 56, 87, .35) 0%,
+      rgba(44, 56, 87, 0) 25%,
+      rgba(74, 20, 32, 0) 52%,
+      rgba(74, 20, 32, .62) 70%,
+      rgba(74, 20, 32, .88) 100%);
 }
 
 .hero__snow {
@@ -259,17 +260,66 @@ a:hover { color: var(--burgundy-dark); }
   50%      { transform: translate(-50%, 6px); }
 }
 
-/* Phones: show a wider slice of the photo so both faces stay in frame */
-@media (max-width: 640px) and (orientation: portrait) {
+/* Phones & tablets (portrait photo): photo on top fading into a burgundy
+   panel that holds the names, so the text never covers faces */
+@media (max-width: 899px) {
   .hero {
-    height: min(100svh, 128vw);
-    min-height: 500px;
+    display: block;
+    height: auto;
+    min-height: 0;
+    background: linear-gradient(to bottom, var(--burgundy-dark) 0%, var(--burgundy-dark) 55%, var(--plum) 100%);
   }
-  .hero__img { object-position: 61% 45%; }
-  .hero__content { padding-bottom: 5.25rem; }
-  .hero__scroll { bottom: 2.4rem; }
+  .hero picture {
+    position: relative;
+    display: block;
+    height: min(124vw, 80svh);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
+  }
+  .hero__img {
+    inset: 0;
+    height: 100%;
+    object-position: 50% 12%;
+  }
+  .hero__overlay {
+    background: linear-gradient(to bottom, rgba(44, 56, 87, .35) 0%, rgba(44, 56, 87, 0) 22%);
+  }
+  .hero__content {
+    margin-top: -3.25rem;
+    padding-bottom: clamp(5.5rem, 16vw, 8rem);
+  }
+  .hero__scroll { bottom: clamp(2.2rem, 7vw, 4.5rem); }
+}
+@media (max-width: 640px) {
   .hero__place span { display: block; }
   .hero__place .dot { display: none; }
+}
+
+/* Wide screens: photo on the right, names on a twilight panel to the left */
+@media (min-width: 900px) {
+  .hero {
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(160deg, var(--dusk) 0%, var(--plum) 60%, var(--burgundy-dark) 100%);
+  }
+  .hero__img {
+    left: auto;
+    right: 0;
+    width: 52%;
+    object-position: 50% 30%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  }
+  .hero__overlay {
+    background:
+      linear-gradient(to bottom, rgba(44, 56, 87, .25) 0%, rgba(44, 56, 87, 0) 30%, rgba(74, 20, 32, 0) 65%, rgba(74, 20, 32, .6) 100%);
+  }
+  .hero__content {
+    width: 52%;
+    padding: 0 3vw 4rem 4vw;
+  }
+  .hero__names { font-size: clamp(3.4rem, 6.4vw, 6.5rem); }
 }
 
 /* ---------- Bands & sections ---------- */
