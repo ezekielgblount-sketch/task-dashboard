@@ -250,6 +250,7 @@ a:hover { color: var(--burgundy-dark); }
 .hero__content > :nth-child(3) { animation-delay: .75s; }
 .hero__content > :nth-child(4) { animation-delay: .95s; }
 .hero__content > :nth-child(5) { animation-delay: 1.15s; }
+.hero__content > :nth-child(6) { animation-delay: 1.3s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
@@ -546,6 +547,14 @@ a:hover { color: var(--burgundy-dark); }
 }
 .btn--ghost:hover { background: rgba(255, 255, 255, .22); }
 .hero__rsvp { margin-top: 1.5rem; }
+.hero__deadline {
+  margin: .7rem 0 0;
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .8);
+}
+.deadline { display: inline-block; margin-top: .4rem; font-weight: 500; color: var(--burgundy); }
 
 .btn--block { display: block; width: 100%; text-align: center; border: 0; cursor: pointer; font-family: var(--font-body); }
 .btn[disabled] { opacity: .6; cursor: progress; transform: none; }
