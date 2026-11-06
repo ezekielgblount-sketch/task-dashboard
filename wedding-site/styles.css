@@ -955,6 +955,33 @@ select.field { appearance: auto; }
 .rsvp__thanks { margin: 0; font-size: 2.8rem; line-height: 1.2; color: var(--rose); }
 .rsvp__done p { margin: 0 0 1rem; }
 
+/* ---------- Registry ---------- */
+
+.band--registry { background: var(--ivory); }
+.band--registry .section { padding-top: clamp(1rem, 4vw, 2rem); }
+.registry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 2.2rem;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 24px 50px -32px rgba(74, 20, 32, .55);
+}
+.registry__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: .9rem;
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--burgundy);
+}
+.registry__icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.registry__name { margin: 0; font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; line-height: 1.2; color: var(--burgundy); text-wrap: balance; }
+.registry__where { margin: .2rem 0 .4rem; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-soft); }
+
 /* ---------- More information ---------- */
 
 .info { display: grid; gap: 1.5rem; }
