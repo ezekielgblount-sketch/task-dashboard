@@ -467,7 +467,7 @@ a:hover { color: var(--burgundy-dark); }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: var(--pos, 50% 50%);
 }
@@ -488,7 +488,6 @@ a:hover { color: var(--burgundy-dark); }
   .moment:nth-child(odd) .moment__card { grid-column: 1; grid-row: 1; text-align: right; }
   .moment:nth-child(even) .moment__card { grid-column: 3; grid-row: 1; }
   .timeline::before, .timeline::after { top: 40px; bottom: 40px; }
-  .moment__photo img { aspect-ratio: 16 / 11; }
 }
 
 /* ---------- Countdown ---------- */
