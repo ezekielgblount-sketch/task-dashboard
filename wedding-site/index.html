@@ -114,7 +114,7 @@
     </div>
 
     <!-- ============ GUEST LIST ============
-         The names come from guests.js. -->
+         The names come from guests.json. -->
     <section class="band band--sage" id="guest-list">
       <div class="section split">
         <figure class="split__media" data-reveal="wipe">
@@ -143,7 +143,7 @@
           </summary>
           <p class="guestlist__hint">Tap your name to RSVP.</p>
           <ul class="guests" id="guest-parties" aria-label="Invited guests">
-            <!-- Filled in from guests.js -->
+            <!-- Filled in from guests.json -->
           </ul>
         </details>
       </div>
@@ -191,17 +191,9 @@
               </div>
 
               <fieldset class="rsvp__group">
-                <legend class="field__label">Will you be joining us?</legend>
-                <div class="choices">
-                  <label class="choice"><input type="radio" name="attending" value="yes" id="rsvp-yes"><span>Joyfully accept</span></label>
-                  <label class="choice"><input type="radio" name="attending" value="no" id="rsvp-no"><span>Regretfully decline</span></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="rsvp__group" id="rsvp-members-wrap" hidden>
                 <legend class="field__label">Who's coming?</legend>
-                <p class="rsvp__help">Check everyone in your party who will be there. Only the guests listed here are invited.</p>
-                <div class="members" id="rsvp-members"></div>
+                <p class="rsvp__help">Choose Accept or Decline for each person. Only the guests listed here are invited.</p>
+                <div class="people" id="rsvp-people"></div>
               </fieldset>
 
               <div class="rsvp__group" id="rsvp-respondent-wrap">
@@ -388,7 +380,6 @@
     <p class="footer__ps"><svg class="tiny__icon" viewBox="0 0 48 32" aria-hidden="true"><path d="M8 23 C3 23 2 16 7 15"/><ellipse cx="22" cy="22" rx="14" ry="7.5"/><circle cx="36.5" cy="18.5" r="6"/><circle cx="34" cy="11.5" r="3.8"/><path d="M35.5 18.8 q1.6 1.3 3.2 0"/><path d="M41 6.5 h3 l-3 3.5 h3" class="nick__z"/></svg>P.S. To each other, we're Sleepy Mouse and EZ Bee. Our theme may or may not have something to do with that.<svg class="tiny__icon" viewBox="0 0 44 32" aria-hidden="true"><ellipse cx="21" cy="9.5" rx="3.6" ry="6" transform="rotate(-22 21 9.5)"/><ellipse cx="28" cy="9.5" rx="3.6" ry="6" transform="rotate(22 28 9.5)"/><ellipse cx="26" cy="20" rx="10" ry="7"/><path d="M24 13.2 V26.8 M29 13.4 V26.6"/><circle cx="14" cy="19" r="4.5"/><path d="M12.5 15 q-1.5 -4 -5 -5"/><path d="M36 20 h4"/></svg></p>
   </footer>
 
-  <script src="guests.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

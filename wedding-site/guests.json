@@ -1,0 +1,310 @@
+{
+  "_note": "The guest list. The website and the RSVP service both read this file, so editing it here is all a guest list change needs. Keep each party's id the same once people have RSVPed. 'aka' = other names guests might search for. 'renamed' = old name -> new name, so answers already saved follow the person.",
+  "parties": [
+    {
+      "id": "mama",
+      "members": [
+        "Melissa Mastrangelo"
+      ],
+      "aka": [
+        "Mama"
+      ]
+    },
+    {
+      "id": "papa",
+      "members": [
+        "Michael Mastrangelo"
+      ],
+      "aka": [
+        "Papa"
+      ]
+    },
+    {
+      "id": "joe-gianna-michael",
+      "members": [
+        "Joe Mastrangelo",
+        "Gianna Mastrangelo",
+        "Michael Mastrangelo (baby)"
+      ]
+    },
+    {
+      "id": "anthony-maya",
+      "members": [
+        "Anthony Mastrangelo",
+        "Maya Mastrangelo"
+      ]
+    },
+    {
+      "id": "donavon-izy",
+      "members": [
+        "Donavon Mastrangelo",
+        "Izy"
+      ]
+    },
+    {
+      "id": "marcus",
+      "members": [
+        "Marcus Mastrangelo"
+      ]
+    },
+    {
+      "id": "meme-papple",
+      "members": [
+        "Christan Liaf",
+        "Papple Liaf"
+      ],
+      "aka": [
+        "Meme"
+      ]
+    },
+    {
+      "id": "colleen-david",
+      "members": [
+        "Colleen Clark",
+        "David Clark"
+      ],
+      "aka": [
+        "Grandma Colleen",
+        "Grandpa David",
+        "Grandma",
+        "Grandpa"
+      ]
+    },
+    {
+      "id": "kelcys-nelli",
+      "members": [
+        "Kelcys Moore",
+        "Nelli"
+      ]
+    },
+    {
+      "id": "samara-austin",
+      "members": [
+        "Samara Stump",
+        "Austin Stump"
+      ]
+    },
+    {
+      "id": "kailey",
+      "members": [
+        "Kailey"
+      ]
+    },
+    {
+      "id": "jackie",
+      "members": [
+        "Jackie Morrison"
+      ]
+    },
+    {
+      "id": "christa-greg-ava-michael",
+      "members": [
+        "Christa Joyce",
+        "Greg Joyce",
+        "Ava Joyce",
+        "Michael Joyce"
+      ]
+    },
+    {
+      "id": "heather-jeff-ian-vincent",
+      "members": [
+        "Heather Dirito",
+        "Jeff Dirito",
+        "Ian Dirito",
+        "Vincent Dirito"
+      ]
+    },
+    {
+      "id": "pj-shanna",
+      "members": [
+        "Phil Mastrangelo",
+        "Shanna Mastrangelo"
+      ],
+      "aka": [
+        "PJ"
+      ]
+    },
+    {
+      "id": "amy-randy-esther-jackson",
+      "members": [
+        "Amy Blount",
+        "Randy Blount",
+        "Esther Blount",
+        "Jackson Blount"
+      ]
+    },
+    {
+      "id": "sassy-david",
+      "members": [
+        "Sassy Thomas",
+        "David Thomas"
+      ]
+    },
+    {
+      "id": "mema-papa",
+      "members": [
+        "Sharron Blount",
+        "Claude Blount"
+      ],
+      "aka": [
+        "Mema",
+        "Pa Pa",
+        "Papa"
+      ]
+    },
+    {
+      "id": "grandpa-cader",
+      "members": [
+        "Grandpa Cater"
+      ],
+      "aka": [
+        "Cader"
+      ]
+    },
+    {
+      "id": "gabe",
+      "members": [
+        "Gabe Phillips"
+      ]
+    },
+    {
+      "id": "timmy-mady-mom",
+      "members": [
+        "Timmy Muhle",
+        "Mady Muhle",
+        "Christi Muhle"
+      ],
+      "aka": [
+        "Timmy's Mom"
+      ]
+    },
+    {
+      "id": "joel",
+      "members": [
+        "Joel Chism"
+      ]
+    },
+    {
+      "id": "moses",
+      "members": [
+        "Moses Vidal"
+      ]
+    },
+    {
+      "id": "kadence-steaven",
+      "members": [
+        "Kadence Stokes",
+        "Steaven"
+      ]
+    },
+    {
+      "id": "matthew",
+      "members": [
+        "Matthew Hofmann"
+      ]
+    },
+    {
+      "id": "regon",
+      "members": [
+        "Reagan Stancliff"
+      ]
+    }
+  ],
+  "renamed": {
+    "mama": {
+      "Mama": "Melissa Mastrangelo"
+    },
+    "papa": {
+      "Papa": "Michael Mastrangelo"
+    },
+    "joe-gianna-michael": {
+      "Joe": "Joe Mastrangelo",
+      "Gianna": "Gianna Mastrangelo",
+      "Michael": "Michael Mastrangelo (baby)"
+    },
+    "anthony-maya": {
+      "Anthony": "Anthony Mastrangelo",
+      "Maya": "Maya Mastrangelo"
+    },
+    "donavon-izy": {
+      "Donavon": "Donavon Mastrangelo"
+    },
+    "marcus": {
+      "Marcus": "Marcus Mastrangelo"
+    },
+    "meme-papple": {
+      "Meme": "Christan Liaf",
+      "Papple": "Papple Liaf"
+    },
+    "colleen-david": {
+      "Grandma Colleen": "Colleen Clark",
+      "Grandpa David": "David Clark"
+    },
+    "kelcys-nelli": {
+      "Kelcys": "Kelcys Moore"
+    },
+    "samara-austin": {
+      "Samara": "Samara Stump",
+      "Austin": "Austin Stump"
+    },
+    "jackie": {
+      "Jackie": "Jackie Morrison"
+    },
+    "christa-greg-ava-michael": {
+      "Christa": "Christa Joyce",
+      "Greg": "Greg Joyce",
+      "Ava": "Ava Joyce",
+      "Michael": "Michael Joyce"
+    },
+    "heather-jeff-ian-vincent": {
+      "Heather": "Heather Dirito",
+      "Jeff": "Jeff Dirito",
+      "Ian": "Ian Dirito",
+      "Vincent": "Vincent Dirito"
+    },
+    "pj-shanna": {
+      "PJ": "Phil Mastrangelo",
+      "Shanna": "Shanna Mastrangelo"
+    },
+    "amy-randy-esther-jackson": {
+      "Amy": "Amy Blount",
+      "Randy": "Randy Blount",
+      "Esther": "Esther Blount",
+      "Jackson": "Jackson Blount"
+    },
+    "sassy-david": {
+      "Sassy": "Sassy Thomas",
+      "David": "David Thomas"
+    },
+    "mema-papa": {
+      "Mema": "Sharron Blount",
+      "Pa Pa": "Claude Blount"
+    },
+    "grandpa-cader": {
+      "Grandpa Cader": "Grandpa Cater"
+    },
+    "gabe": {
+      "Gabe": "Gabe Phillips"
+    },
+    "timmy-mady-mom": {
+      "Timmy": "Timmy Muhle",
+      "Mady": "Mady Muhle",
+      "Timmy's Mom": "Christi Muhle"
+    },
+    "joel": {
+      "Joel": "Joel Chism"
+    },
+    "moses": {
+      "Moses": "Moses Vidal"
+    },
+    "kadence-steaven": {
+      "Kadence": "Kadence Stokes"
+    },
+    "matthew": {
+      "Matthew": "Matthew Hofmann"
+    },
+    "regon": {
+      "Reagan": "Reagan Stancliff"
+    }
+  }
+}

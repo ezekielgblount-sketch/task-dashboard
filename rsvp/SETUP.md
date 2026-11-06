@@ -35,7 +35,7 @@ not saved.
 
 ## Changing the guest list later
 
-Edit both `wedding-site/guests.js` (what the site shows) and `PARTIES` in
-`Code.gs` (what the RSVP service accepts). After changing `Code.gs`, paste it
-into the Apps Script editor again and use **Deploy → Manage deployments →
-Edit (pencil) → Version: New version → Deploy**. The URL stays the same.
+Edit `wedding-site/guests.json` only. The website and the RSVP service both
+read it (the service re-checks it every 5 minutes), so no script update is
+needed. Keep each party's `id` the same; when renaming someone who may have
+already answered, add an entry under `renamed` so their answer follows them.

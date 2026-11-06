@@ -2,7 +2,8 @@
  * Ezekiel & Sophia — RSVP service (Google Apps Script)
  *
  * What it does when a guest sends an RSVP from the website:
- *   1. Checks the party is on the guest list, and that everyone marked as
+ *   1. Checks the party is on the guest list (read from the website's
+ *      guests.json, so editing that file is all a guest list change needs), and that everyone marked as
  *      coming belongs to that party.
  *   2. Saves each person's answer in a Google Sheet ("Ezekiel & Sophia RSVPs"),
  *      created automatically and shared with NOTIFY_EMAIL.
@@ -17,35 +18,64 @@ const NOTIFY_EMAIL = 'sophiamastrangelo6@gmail.com';
 const SITE_URL = 'https://ezekielgblount-sketch.github.io/task-dashboard/';
 const SHEET_TITLE = 'Ezekiel & Sophia RSVPs';
 
-// Keep in sync with wedding-site/guests.js
-const PARTIES = [
-  { id: 'mama', members: ['Mama'] },
-  { id: 'papa', members: ['Papa'] },
-  { id: 'joe-gianna-michael', members: ['Joe', 'Gianna', 'Michael'] },
-  { id: 'anthony-maya', members: ['Anthony', 'Maya'] },
-  { id: 'donavon-izy', members: ['Donavon', 'Izy'] },
-  { id: 'marcus', members: ['Marcus'] },
-  { id: 'meme-papple', members: ['Meme', 'Papple'] },
-  { id: 'colleen-david', members: ['Grandma Colleen', 'Grandpa David'] },
-  { id: 'kelcys-nelli', members: ['Kelcys', 'Nelli'] },
-  { id: 'samara-austin', members: ['Samara', 'Austin'] },
-  { id: 'kailey', members: ['Kailey'] },
-  { id: 'jackie', members: ['Jackie'] },
-  { id: 'christa-greg-ava-michael', members: ['Christa', 'Greg', 'Ava', 'Michael'] },
-  { id: 'heather-jeff-ian-vincent', members: ['Heather', 'Jeff', 'Ian', 'Vincent'] },
-  { id: 'pj-shanna', members: ['PJ', 'Shanna'] },
-  { id: 'amy-randy-esther-jackson', members: ['Amy', 'Randy', 'Esther', 'Jackson'] },
-  { id: 'sassy-david', members: ['Sassy', 'David'] },
-  { id: 'mema-papa', members: ['Mema', 'Pa Pa'] },
-  { id: 'grandpa-cader', members: ['Grandpa Cader'] },
-  { id: 'gabe', members: ['Gabe'] },
-  { id: 'timmy-mady-mom', members: ['Timmy', 'Mady', "Timmy's Mom"] },
-  { id: 'joel', members: ['Joel'] },
-  { id: 'moses', members: ['Moses'] },
-  { id: 'kadence-steaven', members: ['Kadence', 'Steaven'] },
-  { id: 'matthew', members: ['Matthew'] },
-  { id: 'regon', members: ['Reagan'] },
+// The guest list is read from the website's guests.json (GUESTS_URL), so a
+// change there is all a guest list edit needs. This copy is only a backup
+// in case the site can't be reached.
+const GUESTS_URL = SITE_URL + 'guests.json';
+const FALLBACK_PARTIES = [
+  { id: 'mama', members: ["Melissa Mastrangelo"] },
+  { id: 'papa', members: ["Michael Mastrangelo"] },
+  { id: 'joe-gianna-michael', members: ["Joe Mastrangelo", "Gianna Mastrangelo", "Michael Mastrangelo (baby)"] },
+  { id: 'anthony-maya', members: ["Anthony Mastrangelo", "Maya Mastrangelo"] },
+  { id: 'donavon-izy', members: ["Donavon Mastrangelo", "Izy"] },
+  { id: 'marcus', members: ["Marcus Mastrangelo"] },
+  { id: 'meme-papple', members: ["Christan Liaf", "Papple Liaf"] },
+  { id: 'colleen-david', members: ["Colleen Clark", "David Clark"] },
+  { id: 'kelcys-nelli', members: ["Kelcys Moore", "Nelli"] },
+  { id: 'samara-austin', members: ["Samara Stump", "Austin Stump"] },
+  { id: 'kailey', members: ["Kailey"] },
+  { id: 'jackie', members: ["Jackie Morrison"] },
+  { id: 'christa-greg-ava-michael', members: ["Christa Joyce", "Greg Joyce", "Ava Joyce", "Michael Joyce"] },
+  { id: 'heather-jeff-ian-vincent', members: ["Heather Dirito", "Jeff Dirito", "Ian Dirito", "Vincent Dirito"] },
+  { id: 'pj-shanna', members: ["Phil Mastrangelo", "Shanna Mastrangelo"] },
+  { id: 'amy-randy-esther-jackson', members: ["Amy Blount", "Randy Blount", "Esther Blount", "Jackson Blount"] },
+  { id: 'sassy-david', members: ["Sassy Thomas", "David Thomas"] },
+  { id: 'mema-papa', members: ["Sharron Blount", "Claude Blount"] },
+  { id: 'grandpa-cader', members: ["Grandpa Cater"] },
+  { id: 'gabe', members: ["Gabe Phillips"] },
+  { id: 'timmy-mady-mom', members: ["Timmy Muhle", "Mady Muhle", "Christi Muhle"] },
+  { id: 'joel', members: ["Joel Chism"] },
+  { id: 'moses', members: ["Moses Vidal"] },
+  { id: 'kadence-steaven', members: ["Kadence Stokes", "Steaven"] },
+  { id: 'matthew', members: ["Matthew Hofmann"] },
+  { id: 'regon', members: ["Reagan Stancliff"] },
 ];
+
+let LIST_ = null;
+function guestList_() {
+  if (LIST_) return LIST_;
+  const cache = CacheService.getScriptCache();
+  let text = cache.get('guests');
+  if (!text) {
+    try {
+      const res = UrlFetchApp.fetch(GUESTS_URL + '?t=' + Date.now(), { muteHttpExceptions: true });
+      if (res.getResponseCode() === 200) {
+        text = res.getContentText();
+        cache.put('guests', text, 300); // re-check the site every 5 minutes
+      }
+    } catch (err) { console.warn(err); }
+  }
+  try {
+    const parsed = JSON.parse(text);
+    if (Array.isArray(parsed.parties) && parsed.parties.length) {
+      LIST_ = { parties: parsed.parties, renamed: parsed.renamed || {} };
+      return LIST_;
+    }
+  } catch (err) { /* use the backup */ }
+  LIST_ = { parties: FALLBACK_PARTIES, renamed: {} };
+  return LIST_;
+}
+function parties_() { return guestList_().parties; }
 
 const STATUS_YES = 'Attending';
 const STATUS_NO = 'Not attending';
@@ -66,7 +96,7 @@ function doPost(e) {
     return json_({ ok: false, error: 'bad_request' });
   }
 
-  const party = PARTIES.find(function (p) { return p.id === data.partyId; });
+  const party = parties_().find(function (p) { return p.id === data.partyId; });
   if (!party) return json_({ ok: false, error: 'not_on_list' });
 
   const attending = data.attending === true;
@@ -131,13 +161,31 @@ function getSheet_() {
   return sheet;
 }
 
-// Keep the sheet matching the guest list: add rows for new guests, and
-// remove rows for names no longer on the list (e.g. a corrected spelling)
-// as long as that row has no answer yet.
+// Keep the sheet matching the guest list:
+// - rename people whose name changed (their answers carry over)
+// - refresh each row's party label
+// - remove rows for names no longer on the list, if they have no answer yet
+// - add rows for new guests
 function addMissingGuests_(sheet) {
+  const list = guestList_();
+  const byId = {};
   const onList = {};
-  PARTIES.forEach(function (p) { p.members.forEach(function (n) { onList[p.id + '|' + n] = true; }); });
+  list.parties.forEach(function (p) {
+    byId[p.id] = p;
+    p.members.forEach(function (n) { onList[p.id + '|' + n] = true; });
+  });
   let rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    const id = rows[i][0];
+    let name = rows[i][2];
+    const to = list.renamed[id] && list.renamed[id][name];
+    if (to && !onList[id + '|' + name]) {
+      name = to;
+      sheet.getRange(i + 1, 3).setValue(name);
+    }
+    if (byId[id] && rows[i][1] !== partyLabel_(byId[id])) sheet.getRange(i + 1, 2).setValue(partyLabel_(byId[id]));
+  }
+  rows = sheet.getDataRange().getValues();
   for (let i = rows.length - 1; i >= 1; i--) {
     if (!onList[rows[i][0] + '|' + rows[i][2]] && rows[i][3] === STATUS_NONE) sheet.deleteRow(i + 1);
   }
@@ -145,7 +193,7 @@ function addMissingGuests_(sheet) {
   const have = {};
   rows.slice(1).forEach(function (r) { have[r[0] + '|' + r[2]] = true; });
   const add = [];
-  PARTIES.forEach(function (p) {
+  list.parties.forEach(function (p) {
     p.members.forEach(function (name) {
       if (!have[p.id + '|' + name]) add.push([p.id, partyLabel_(p), name, STATUS_NONE, '', '', '', '']);
     });
@@ -169,7 +217,9 @@ function saveRsvp_(sheet, rsvp) {
 }
 
 function statusRows_(sheet) {
-  return sheet.getDataRange().getValues().slice(1).map(function (r) {
+  const onList = {};
+  parties_().forEach(function (p) { p.members.forEach(function (n) { onList[p.id + '|' + n] = true; }); });
+  return sheet.getDataRange().getValues().slice(1).filter(function (r) { return onList[r[0] + '|' + r[2]]; }).map(function (r) {
     return { partyId: r[0], party: r[1], name: r[2], status: r[3] };
   });
 }
@@ -281,7 +331,7 @@ function json_(obj) {
 /* Optional: run this once from the editor to check that emails reach Sophia. */
 function sendTestEmail() {
   sendUpdate_({
-    party: PARTIES[0], attending: true, coming: PARTIES[0].members, notComing: [],
+    party: parties_()[0], attending: true, coming: parties_()[0].members, notComing: [],
     respondent: 'Test', email: '', note: 'This is a test.',
   }, statusRows_(getSheet_()), true);
 }
