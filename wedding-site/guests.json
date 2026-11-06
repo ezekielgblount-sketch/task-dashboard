@@ -31,10 +31,11 @@
       "id": "anthony-maya",
       "members": [
         "Anthony Mastrangelo",
-        "Maya Saylor"
+        "Maya Salyer"
       ],
       "aka": [
-        "Maya Mastrangelo"
+        "Maya Mastrangelo",
+        "Maya Saylor"
       ]
     },
     {
@@ -93,6 +94,9 @@
     {
       "id": "kailey",
       "members": [
+        "Kailey Shropshire"
+      ],
+      "aka": [
         "Kailey Shropshier"
       ]
     },
@@ -230,8 +234,9 @@
     },
     "anthony-maya": {
       "Anthony": "Anthony Mastrangelo",
-      "Maya": "Maya Saylor",
-      "Maya Mastrangelo": "Maya Saylor"
+      "Maya": "Maya Salyer",
+      "Maya Mastrangelo": "Maya Salyer",
+      "Maya Saylor": "Maya Salyer"
     },
     "donavon-izy": {
       "Donavon": "Donavon Mastrangelo",
@@ -317,7 +322,8 @@
       "Reagan": "Reagan Stancliff"
     },
     "kailey": {
-      "Kailey": "Kailey Shropshier"
+      "Kailey": "Kailey Shropshire",
+      "Kailey Shropshier": "Kailey Shropshire"
     }
   }
 }

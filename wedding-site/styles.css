@@ -471,6 +471,7 @@ a:hover { color: var(--burgundy-dark); }
   object-fit: cover;
   object-position: var(--pos, 50% 50%);
 }
+.moment__photo--wide img { aspect-ratio: 4 / 3; }
 .moment__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
