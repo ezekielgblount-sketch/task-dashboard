@@ -47,7 +47,7 @@ const FALLBACK_PARTIES = [
   { id: 'joel', members: ["Joel Chism"] },
   { id: 'moses', members: ["Moses Vidal"] },
   { id: 'kadence-steaven', members: ["Kadence Stokes", "Steaven"] },
-  { id: 'matthew', members: ["Matthew Jackson"] },
+  { id: 'matthew', members: ["Matthew Hofmann"] },
   { id: 'regon', members: ["Reagan Stancliff"] },
 ];
 
