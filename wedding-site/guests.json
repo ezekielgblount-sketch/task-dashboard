@@ -210,6 +210,9 @@
     {
       "id": "matthew",
       "members": [
+        "Matthew Jackson"
+      ],
+      "aka": [
         "Matthew Hofmann"
       ]
     },
@@ -316,7 +319,8 @@
       "Kadence": "Kadence Stokes"
     },
     "matthew": {
-      "Matthew": "Matthew Hofmann"
+      "Matthew": "Matthew Jackson",
+      "Matthew Hofmann": "Matthew Jackson"
     },
     "regon": {
       "Reagan": "Reagan Stancliff"
