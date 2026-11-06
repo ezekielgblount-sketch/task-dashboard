@@ -63,7 +63,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   /* Load the guest list (guests.json, shared with the RSVP service) */
   let parties = [];
   try {
-    const res = await fetch('guests.json', { cache: 'no-cache' });
+    const res = await fetch('guests.json?v=' + Date.now(), { cache: 'no-store' });
     parties = (await res.json()).parties || [];
   } catch (err) {
     if (listEl) listEl.appendChild(make('li', 'rsvp__nomatch', "The guest list didn't load. Refresh the page to try again."));
