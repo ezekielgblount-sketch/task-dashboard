@@ -140,6 +140,9 @@
         "Amy Blount",
         "Randy Blount",
         "Esther Blount",
+        "Matthew Jackson"
+      ],
+      "aka": [
         "Jackson Blount"
       ]
     },
@@ -285,7 +288,8 @@
       "Amy": "Amy Blount",
       "Randy": "Randy Blount",
       "Esther": "Esther Blount",
-      "Jackson": "Jackson Blount"
+      "Jackson": "Matthew Jackson",
+      "Jackson Blount": "Matthew Jackson"
     },
     "sassy-david": {
       "Sassy": "Sassy Thomas",

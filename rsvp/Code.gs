@@ -38,7 +38,7 @@ const FALLBACK_PARTIES = [
   { id: 'christa-greg-ava-michael', members: ["Christa Joyce", "Greg Joyce", "Ava Joyce", "Michael Joyce"] },
   { id: 'heather-jeff-ian-vincent', members: ["Heather Dirito", "Jeff Dirito", "Ian Dirito", "Vincent Dirito"] },
   { id: 'pj-shanna', members: ["Phil Mastrangelo", "Shanna Mastrangelo"] },
-  { id: 'amy-randy-esther-jackson', members: ["Amy Blount", "Randy Blount", "Esther Blount", "Jackson Blount"] },
+  { id: 'amy-randy-esther-jackson', members: ["Amy Blount", "Randy Blount", "Esther Blount", "Matthew Jackson"] },
   { id: 'sassy-david', members: ["Sassy Thomas", "David Thomas"] },
   { id: 'mema-papa', members: ["Sharron Blount", "Claude Blount"] },
   { id: 'grandpa-cader', members: ["Grandpa Cater"] },
